@@ -1,7 +1,8 @@
 <template lang="html">
   <div>
     <h1>Energy Use Chart</h1>
-    <chart-data :chartData="energyUse.data.generationmix"></chart-data>
+    <chart-data :chartData="energyUse"></chart-data>
+
   </div>
 
 
@@ -20,7 +21,7 @@ export default {
   mounted(){
     fetch("https://api.carbonintensity.org.uk/generation")
     .then(res => res.json())
-    .then(energyUseAPI => this.energyUse = energyUseAPI)
+    .then(energyUseAPI => this.energyUse = energyUseAPI.data.generationmix)
   },
 
   components: {

@@ -1,12 +1,19 @@
 <template>
-  <div>
 
+  <div>
+      <GChart
+        v-if="createDataTableData"
+        type="PieChart"
+        :data="createDataTableData"
+        />
       <h1>Chart Data Component</h1>
 
   </div>
 </template>
 
 <script>
+import { GChart } from 'vue-google-charts'
+
 export default {
     name: "chart-data",
     props: ['chartData'],
@@ -16,25 +23,31 @@ export default {
         }
     },
 
-    methods: {
+    computed: {
         createDataTableData(){
           
-          for(energyObject in this.chartData) {
-            const objectArray = [];
-              for(keyValue of energyObject) {
+
+          for (let energyObject of this.chartData) {
+            let objectArray = [];
+              for (let keyValue in energyObject) {
                   objectArray.push(keyValue);
-                  chartDataTable.push(objectArray);
+                  this.chartDataTable.push(objectArray);
               }
               
           } 
         }
-
     },
 
     mounted(){
-        createDataTableData();
+        this.createDataTableData();
+        console.log(chartData);
         
+    },
+
+    components: {
+        GChart
     }
+
 }
 </script>
 
