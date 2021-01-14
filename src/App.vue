@@ -1,12 +1,15 @@
 <template lang="html">
   <div>
-    
+    <h1>Energy Use Chart</h1>
+    <chart-data> </chart-data>
   </div>
 
 
 </template>
 
 <script>
+import chartData from './components/chartData.vue'
+
 export default {
   name: "app",
   data(){
@@ -18,6 +21,10 @@ export default {
     fetch("https://api.carbonintensity.org.uk/generation")
     .then(res => res.json())
     .then(energyUseAPI => this.energyUse = energyUseAPI)
+  },
+
+  components: {
+    "chart-data": chartData
   }
 
 
