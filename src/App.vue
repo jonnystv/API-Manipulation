@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <h1>Energy Use Chart</h1>
-    <chart-data> </chart-data>
+    <chart-data :chartData="energyUse.data.generationmix"></chart-data>
   </div>
 
 

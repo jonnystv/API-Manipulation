@@ -8,7 +8,33 @@
 
 <script>
 export default {
-    name: "chart-data"
+    name: "chart-data",
+    props: ['chartData'],
+    data(){
+        return { chartDataTable: [
+            ['Fuel', 'Percentage']]
+        }
+    },
+
+    methods: {
+        createDataTableData(){
+          
+          for(energyObject in this.chartData) {
+            const objectArray = [];
+              for(keyValue of energyObject) {
+                  objectArray.push(keyValue);
+                  chartDataTable.push(objectArray);
+              }
+              
+          } 
+        }
+
+    },
+
+    mounted(){
+        createDataTableData();
+        
+    }
 }
 </script>
 
