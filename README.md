@@ -1,7 +1,9 @@
 # API Manipulation
 
 Read data from an API, and manipulate it for use
+
 Handle user interaction and practice business logic
+
 Use third party libraries
 
 ## Project setup
